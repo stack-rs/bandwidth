@@ -1,0 +1,16 @@
+[package]
+name = "bandwidth"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description="A library for representing bandwidth speed in a variety of units, mimicking the `core::time::Duration` struct."
+readme = "README.md"
+homepage ="https://github.com/stack-rs/bandwidth"
+repository = "https://github.com/stack-rs/bandwidth"
+keywords = ["bandwidth", "data-structures", "network", "no-std", "utility"]
+documentation = "https://docs.rs/bandwidth"
+categories = ["data-structures", "network-programming", "no-std::no-alloc"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
