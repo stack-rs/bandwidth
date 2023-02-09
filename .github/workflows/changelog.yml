@@ -17,7 +17,8 @@ jobs:
           PATH: 'CHANGELOG.md'
           COMMIT_MESSAGE: 'docs(changelog): update release notes'
           TYPE: 'feat:Feature,fix:Bug Fixes,docs:Documentation,refactor:Refactor,perf:Performance Improvements'
-  
+          DEFAULT_SCOPE: '*'
+
   add-contributors:
     runs-on: ubuntu-latest
     steps:
@@ -31,5 +32,4 @@ jobs:
           FONT_SIZE: '14'
           PATH: 'README.md'
           COMMIT_MESSAGE: 'docs(readme): update contributors'
-          AVATAR_SHAPE: 'round'
-          DEFAULT_SCOPE: '*'
+          AVATAR_SHAPE: 'round'       
