@@ -32,3 +32,4 @@ jobs:
           PATH: 'README.md'
           COMMIT_MESSAGE: 'docs(readme): update contributors'
           AVATAR_SHAPE: 'round'
+          DEFAULT_SCOPE: '*'
