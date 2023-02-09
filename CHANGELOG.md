@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [v0.2.0](https://github.com/stack-rs/bandwidth/releases/tag/v0.2.0) - 2023-02-09 06:48:27
+
+Enable higher expressiveness of implementing `Debug` trait for `Bandwidth` struct with rust version higher than 1.67
+
+### Feature
+
+- general:
+  - enable higher expressiveness after rust 1.67 ([3243f70](https://github.com/stack-rs/bandwidth/commit/3243f705b8d62c7d32ed7bde8c7922bfec50801f))
+
 ## [v0.1.0](https://github.com/stack-rs/bandwidth/releases/tag/v0.1.0) - 2023-02-08 12:36:16
 
 *No description*
