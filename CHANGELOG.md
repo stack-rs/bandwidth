@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## [v0.2.1](https://github.com/stack-rs/bandwidth/releases/tag/v0.2.1) - 2023-02-09 07:35:24
+
+Add some crate documentation with example usage.
+
+### Documentation
+
+- readme:
+  - add example usage ([c55e88f](https://github.com/stack-rs/bandwidth/commit/c55e88fa1b251f0a87722357ecc00c3b58d3056d))
+
+- *:
+  - add some crate documentation ([3edb701](https://github.com/stack-rs/bandwidth/commit/3edb70168b378d28c4fc363685156399f1c407b8))
+
 ## [v0.2.0](https://github.com/stack-rs/bandwidth/releases/tag/v0.2.0) - 2023-02-09 06:48:27
 
 Enable higher expressiveness of implementing `Debug` trait for `Bandwidth` struct with rust version higher than 1.67
