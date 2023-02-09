@@ -1,5 +1,24 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 
+//! Bandwidth Speed quantification.
+//!
+//! # Examples:
+//!
+//! There are multiple ways to create a new [`Bandwidth`]:
+//!
+//! ```
+//! # use bandwidth::Bandwidth;
+//! let five_gbps = Bandwidth::from_gbps(5);
+//! assert_eq!(five_gbps, Bandwidth::from_mbps(5_000));
+//! assert_eq!(five_gbps, Bandwidth::from_kbps(5_000_000));
+//! assert_eq!(five_gbps, Bandwidth::from_bps(5_000_000_000));
+//!
+//! let ten_gbps = Bandwidth::from_gbps(10);
+//! let seven_bps = Bandwidth::from_bps(7);
+//! let total = ten_gbps + seven_bps;
+//! assert_eq!(total, Bandwidth::new(10, 7));
+//! ```
+
 use core::fmt::{self, Write};
 use core::iter::Sum;
 use core::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Sub, SubAssign};
@@ -15,7 +34,7 @@ const KBPS_PER_GBPS: u64 = 1_000_000;
 #[derive(Default)]
 struct BitPerSec(u32);
 
-/// A `Bandwidth` type to represent a link's bandwidth(to describe how many bytes can be sent
+/// A `Bandwidth` type to represent a link's bandwidth(to describe how many bits can be sent
 /// on the link per second), typically used for network.
 ///
 /// Each `Bandwidth` is composed of a whole number of gbps(gigabits per second) and a fractional part
@@ -49,7 +68,28 @@ pub struct Bandwidth {
 }
 
 impl Bandwidth {
+    /// The maximum bandwidth speed.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use bandwidth::Bandwidth;
+    ///
+    /// assert_eq!(Bandwidth::MAX, Bandwidth::new(u64::MAX, 1_000_000_000 - 1));
+    /// ```
     pub const MAX: Bandwidth = Bandwidth::new(u64::MAX, BPS_PER_GBPS - 1);
+
+    /// A zero bandwidth speed.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use bandwidth::Bandwidth;
+    ///
+    /// let bw = Bandwidth::ZERO;
+    /// assert!(bw.is_zero());
+    /// assert_eq!(bw.as_bps(), 0);
+    /// ```
     pub const ZERO: Bandwidth = Bandwidth::new(0, 0);
 
     #[inline]
