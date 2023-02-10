@@ -1,11 +1,11 @@
 [package]
 name = "bandwidth"
-version = "0.2.1"
+version = "0.3.0"
 edition = "2021"
 license = "Apache-2.0"
-description="A library for representing bandwidth speed in a variety of units, mimicking the `core::time::Duration` struct."
+description = "A library for representing bandwidth speed in a variety of units, mimicking the `core::time::Duration` struct."
 readme = "README.md"
-homepage ="https://github.com/stack-rs/bandwidth"
+homepage = "https://github.com/stack-rs/bandwidth"
 repository = "https://github.com/stack-rs/bandwidth"
 keywords = ["bandwidth", "data-structures", "network", "no-std", "utility"]
 documentation = "https://docs.rs/bandwidth"
@@ -15,3 +15,10 @@ categories = ["data-structures", "network-programming", "no-std"]
 
 [dependencies]
 rustversion = "1.0"
+serde = { version = "1.0.152", default-features = false, optional = true, features = [
+    "derive",
+] }
+
+[features]
+default = ["std"]
+std = ["serde?/std"]

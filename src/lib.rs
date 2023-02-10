@@ -22,6 +22,8 @@
 use core::fmt::{self, Write};
 use core::iter::Sum;
 use core::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Sub, SubAssign};
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
 
 const BPS_PER_GBPS: u32 = 1_000_000_000;
 const BPS_PER_MBPS: u32 = 1_000_000;
@@ -29,9 +31,9 @@ const BPS_PER_KBPS: u32 = 1_000;
 const MBPS_PER_GBPS: u64 = 1_000;
 const KBPS_PER_GBPS: u64 = 1_000_000;
 
-#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-#[derive(Default)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(transparent))]
 struct BitPerSec(u32);
 
 /// A `Bandwidth` type to represent a link's bandwidth(to describe how many bits can be sent
@@ -62,6 +64,7 @@ struct BitPerSec(u32);
 /// let ten_mbps = Bandwidth::from_mbps(10);
 /// ```
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Bandwidth {
     gbps: u64,
     bps: BitPerSec, // Always 0 <= bps < BPS_PER_GBPS
