@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [v0.3.0](https://github.com/stack-rs/bandwidth/releases/tag/v0.3.0) - 2023-02-10 06:28:12
+
+Add `serde` support for both `std` and `no_std` environment. Enable `std` feature by default.
+
+### Feature
+
+- *:
+  - add serde feature ([66ebef5](https://github.com/stack-rs/bandwidth/commit/66ebef588c2d33cd4f1019beab803239e6771b9a))
+
 ## [v0.2.1](https://github.com/stack-rs/bandwidth/releases/tag/v0.2.1) - 2023-02-09 07:35:24
 
 Add some crate documentation with example usage.
